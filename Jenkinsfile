@@ -48,7 +48,8 @@ pipeline {
    	}
    } 
   }	   
-*/	stage ('wait_for_testing'){
+*/
+	stage ('wait_for_testing'){
 	   steps {
 		   sh 'pwd; sleep 180; echo "Application Has been deployed on K8S"'
 	   	}
