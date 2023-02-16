@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: asgbuggy-deployment
+  name: radev-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: asgbuggy
+      app: radev
   template:
     metadata:
       labels:
-        app: asgbuggy
+        app: radev
     spec:
       containers:
-      - name: asgbuggy
+      - name: radev
         image: 279395902119.dkr.ecr.us-east-1.amazonaws.com/radev
         imagePullPolicy: Always
         ports:
@@ -24,9 +24,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: asgbuggy
-    k8s-app: asgbuggy
-  name: asgbuggy
+    app: radev
+    k8s-app: radev
+  name: radev
 spec:
   ports:
   - name: http
@@ -35,4 +35,4 @@ spec:
     targetPort: 8080
   type: LoadBalancer
   selector:
-    app: asgbuggy
+    app: radev
